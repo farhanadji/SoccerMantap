@@ -1,0 +1,22 @@
+package com.farhan.soccermantap.presenter
+
+import com.farhan.soccermantap.model.EventResponse
+import com.farhan.soccermantap.network.ApiRepository
+import com.farhan.soccermantap.network.SportDBAPI
+import com.farhan.soccermantap.util.CoroutineContextProvider
+import com.farhan.soccermantap.view.SearchView
+import com.google.gson.Gson
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
+class SearchPresenter(private val view: SearchView, private val gson: Gson, private val context: CoroutineContextProvider = CoroutineContextProvider()){
+
+    fun getSearchData(param: String){
+        GlobalScope.launch(context.main){
+            val searchData = gson.fromJson(ApiRepository().doRequestAsync(SportDBAPI.getSearchQuery(param)).await(), EventResponse::class.java)
+            view.let {
+                it.showSearchResult(searchData.event)
+            }
+        }
+    }
+}

@@ -38,26 +38,36 @@ class NextMatchFragment : Fragment(), EventView {
             return fragment
         }
     }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            leagueId = it.getString("key", "4328")
+        }
+        val gson = Gson()
+        presenter = EventPresenter(this,gson)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         var view: View = inflater.inflate(R.layout.fragment_next_match, container, false)
+        rv = view.findViewById(R.id.nextMatchRV)
 
-        val gson = Gson()
-        presenter = EventPresenter(this,gson)
-        presenter.getNextMatch(leagueId)
+        return view
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        rv.layoutManager = LinearLayoutManager(context)
+        super.onViewCreated(view, savedInstanceState)
         context?.let {
             adapter = EventAdapter(it, nextEvent) {
                 startActivity<DetailEvent>("match" to it)
             }
         }
-        rv = view.findViewById(R.id.nextMatchRV)
+        presenter.getNextMatch(leagueId)
         rv.adapter = adapter
-        rv.layoutManager = LinearLayoutManager(context)
-
-        return view
     }
 
     override fun showEventData(data: List<Event>) {

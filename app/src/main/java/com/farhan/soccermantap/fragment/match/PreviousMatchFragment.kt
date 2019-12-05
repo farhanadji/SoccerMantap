@@ -44,6 +44,9 @@ class PreviousMatchFragment : Fragment(), EventView {
         arguments?.let {
             leagueId = it.getString("key", "4328")
         }
+
+        val gson = Gson()
+        presenter = EventPresenter(this,gson)
     }
 
     override fun onCreateView(
@@ -52,23 +55,22 @@ class PreviousMatchFragment : Fragment(), EventView {
     ): View? {
 
         val view: View = inflater.inflate(R.layout.fragment_previous_match, container, false)
+        rv = view.findViewById(R.id.prevMatchRV)
+        return view
+    }
 
-        val gson = Gson()
-        presenter = EventPresenter(this,gson)
-        presenter.getPrevMatch(leagueId)
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        rv.layoutManager = LinearLayoutManager(context)
         context?.let {
             adapter = EventAdapter(it, prevMatch) {
                 startActivity<DetailEvent>("match" to it)
             }
         }
-        rv = view.findViewById(R.id.prevMatchRV)
+        presenter.getPrevMatch(leagueId)
         rv.adapter = adapter
-        rv.layoutManager = LinearLayoutManager(context)
-
-        return view
     }
-
 
     override fun showEventData(data: List<Event>) {
         prevMatch.clear()

@@ -13,13 +13,14 @@ import com.farhan.soccermantap.R
 import com.farhan.soccermantap.activity.DetailLeague
 import com.farhan.soccermantap.adapter.LeagueAdapter
 import com.farhan.soccermantap.model.League
+import com.farhan.soccermantap.model.LeagueHome
 import org.jetbrains.anko.support.v4.startActivity
 
 /**
  * A simple [Fragment] subclass.
  */
 class LeagueFragment : Fragment() {
-    private var item : MutableList<League> = mutableListOf()
+    private var item : MutableList<LeagueHome> = mutableListOf()
     private lateinit var rv: RecyclerView
     private lateinit var adapter: LeagueAdapter
     override fun onCreateView(
@@ -32,7 +33,7 @@ class LeagueFragment : Fragment() {
 
         context?.let {
             adapter = LeagueAdapter(it, item) {
-                startActivity<DetailLeague>("item" to it)
+                startActivity<DetailLeague>("idLeague" to it.id)
             }
         }
 
@@ -49,7 +50,7 @@ class LeagueFragment : Fragment() {
         val leagueDescription = resources.getStringArray(R.array.league_description)
         item.clear()
         for(i in leagueTitle.indices){
-            item.add(League(leagueId[i], leagueTitle[i],leagueBadge.getResourceId(i,0),leagueDescription[i]))
+            item.add(LeagueHome(leagueId[i], leagueTitle[i],leagueBadge.getResourceId(i,0),leagueDescription[i]))
         }
         leagueBadge.recycle()
     }

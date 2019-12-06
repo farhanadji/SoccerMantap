@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +24,7 @@ import org.jetbrains.anko.support.v4.startActivity
  * A simple [Fragment] subclass.
  */
 class SearchFragment : Fragment(), com.farhan.soccermantap.view.SearchView {
+
     private lateinit var presenter : SearchPresenter
     private var events : MutableList<Event> = mutableListOf()
     private lateinit var adapter: EventAdapter
@@ -37,15 +39,18 @@ class SearchFragment : Fragment(), com.farhan.soccermantap.view.SearchView {
 
         val gson = Gson()
         presenter = SearchPresenter(this,gson)
-        context?.let {
-            adapter = EventAdapter(it,events) {
-                startActivity<DetailEvent>("match" to it)
+            context?.let {
+                adapter = EventAdapter(it,events) {
+                    startActivity<DetailEvent>("match" to it)
 
+                }
             }
-        }
-        rv = view.findViewById(R.id.searchRV)
-        rv.layoutManager = LinearLayoutManager(context)
-        rv.adapter = adapter
+//        if(events.isNotEmpty()){
+            rv = view.findViewById(R.id.searchRV)
+            rv.layoutManager = LinearLayoutManager(context)
+            rv.adapter = adapter
+//        }else{
+//        }
 
 
         sc = view.findViewById(R.id.searchMatch)
@@ -53,7 +58,6 @@ class SearchFragment : Fragment(), com.farhan.soccermantap.view.SearchView {
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 if(p0.toString().isNotEmpty()){
                     events.clear()
-                    adapter.notifyDataSetChanged()
                     presenter.getSearchData(p0.toString())
                     Log.v("Search: ", p0.toString())
                     return true
@@ -74,5 +78,9 @@ class SearchFragment : Fragment(), com.farhan.soccermantap.view.SearchView {
         events.clear()
         events.addAll(search)
         adapter.notifyDataSetChanged()
+    }
+    override fun showEmpty() {
+            val toast = Toast.makeText(context, "Not found!", Toast.LENGTH_SHORT)
+            toast.show()
     }
 }

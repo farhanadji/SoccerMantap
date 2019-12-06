@@ -7,65 +7,68 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Event (
     @SerializedName("idEvent")
-    val eventId: String?,
+    val eventId: String? = null,
 
     @SerializedName("strEvent")
-    val eventName: String?,
+    val eventName: String? = null,
 
     @SerializedName("strHomeTeam")
-    val homeTeam: String?,
+    val homeTeam: String? = null,
 
     @SerializedName("strAwayTeam")
-    val awayTeam:  String?,
+    val awayTeam:  String? = null,
 
     @SerializedName("intHomeScore")
-    val homeScore: Int?,
+    val homeScore: String? = null,
 
     @SerializedName("intAwayScore")
-    val awayScore: Int?,
+    val awayScore: String? = null,
 
     @SerializedName("strHomeGoalDetails")
-    val homeGoal: String?,
+    val homeGoal: String? = null,
 
     @SerializedName("strAwayGoalDetails")
-    val awayGoal: String?,
+    val awayGoal: String? = null,
 
     @SerializedName("strHomeLineupGoalkeeper")
-    val homeGoalkeeper: String?,
+    val homeGoalkeeper: String? = null,
 
     @SerializedName("strAwayLineupGoalKeeper")
-    val awayGoalkeeper: String?,
+    val awayGoalkeeper: String? = null,
 
     @SerializedName("strHomeLineupDefense")
-    val homeDefense: String?,
+    val homeDefense: String? = null,
 
     @SerializedName("strAwayLineupDefense")
-    val awayDefense: String?,
+    val awayDefense: String? = null,
 
     @SerializedName("strHomeLineupMidfield")
-    val homeMidfield: String?,
+    val homeMidfield: String? = null,
 
     @SerializedName("strAwayLineupMidfield")
-    val awayMidfield: String?,
+    val awayMidfield: String? = null,
 
     @SerializedName("strHomeLineupForward")
-    val homeForward: String?,
+    val homeForward: String? = null,
 
     @SerializedName("strAwayLineupForward")
-    val awayForward: String?,
+    val awayForward: String? = null,
 
     @SerializedName("strHomeLineupSubstitutes")
-    val homeSubstitutes: String?,
+    val homeSubstitutes: String? = null,
 
     @SerializedName("strAwayLineupSubstitutes")
-    val awaySubstitutes: String?,
+    val awaySubstitutes: String? = null,
 
     @SerializedName("idHomeTeam")
-    val homeId: String,
+    val homeId: String? = null,
 
     @SerializedName("idAwayTeam")
-    val awayId: String,
+    val awayId: String? = null,
 
-    @SerializedName("strDate")
-    val eventDate: String?
+    @SerializedName("dateEvent")
+    val eventDate: String? = null,
+
+    @SerializedName("strSport")
+    val sportType: String? = null
 ) : Parcelable

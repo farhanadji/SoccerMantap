@@ -14,11 +14,9 @@ import com.farhan.soccermantap.R
 import com.farhan.soccermantap.activity.DetailEvent
 import com.farhan.soccermantap.adapter.EventAdapter
 import com.farhan.soccermantap.model.Event
-import com.farhan.soccermantap.network.sportDB
 import com.farhan.soccermantap.presenter.EventPresenter
 import com.farhan.soccermantap.view.EventView
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_previous_match.*
 import org.jetbrains.anko.support.v4.startActivity
 
 /**
@@ -35,6 +33,7 @@ class PreviousMatchFragment : Fragment(), EventView {
         fun newInstance(bundle: Bundle) : PreviousMatchFragment {
             val fragment = PreviousMatchFragment()
             fragment.arguments = bundle
+            Log.v("ISI BUNDLE : ", bundle.getString("key"))
             return fragment
         }
     }
@@ -43,6 +42,7 @@ class PreviousMatchFragment : Fragment(), EventView {
         super.onCreate(savedInstanceState)
         arguments?.let {
             leagueId = it.getString("key", "4328")
+
         }
 
         val gson = Gson()

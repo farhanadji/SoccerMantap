@@ -6,7 +6,6 @@ import com.bumptech.glide.Glide
 import com.farhan.soccermantap.R
 import com.farhan.soccermantap.model.Event
 import com.farhan.soccermantap.model.Team
-import com.farhan.soccermantap.network.sportDB
 import com.farhan.soccermantap.presenter.DetailEventPresenter
 import com.farhan.soccermantap.view.EventDetailView
 import com.google.gson.Gson
@@ -44,17 +43,28 @@ class DetailEvent : AppCompatActivity(), EventDetailView {
     }
 
     fun loadDataEvent(data: Event){
-        homeDefense.text = data.homeDefense
-        awayDefense.text = data.awayDefense
-        homeForward.text = data.homeForward
-        awayForward.text = data.awayForward
-        homeGoalkeeper.text = data.homeGoalkeeper
-        awayGoalKeeper.text = data.awayGoalkeeper
-        homeGoals.text = data.homeGoal
-        awayGoals.text = data.awayGoal
-        homeMidfield.text = data.homeMidfield
-        awayMidfield.text = data.awayMidfield
+        homeTeamName.text = data.homeTeam
+        awayTeamName.text = data.awayTeam
+        homeDefense.text = data.homeDefense?.replace(';','\n')
+        awayDefense.text = data.awayDefense?.replace(';','\n')
+        homeForward.text = data.homeForward?.replace(';','\n')
+        awayForward.text = data.awayForward?.replace(';','\n')
+        homeGoalkeeper.text = data.homeGoalkeeper?.replace(';','\n')
+        awayGoalKeeper.text = data.awayGoalkeeper?.replace(';','\n')
+        homeGoals.text = data.homeGoal?.replace(';','\n')
+        awayGoals.text = data.awayGoal?.replace(';','\n')
+        homeMidfield.text = data.homeMidfield?.replace(';','\n')
+        awayMidfield.text = data.awayMidfield?.replace(';','\n')
+        if(data.homeScore.isNullOrEmpty().not()){
         homeScoreDetail.text = data.homeScore.toString()
-        awayScoreDetail.text = data.awayScore.toString()
+        }else{
+            homeScoreDetail.text = "-"
+        }
+
+        if(data.awayScore.isNullOrEmpty().not()){
+            awayScoreDetail.text = data.awayScore.toString()
+        }else{
+            awayScoreDetail.text = "-"
+        }
     }
 }

@@ -18,7 +18,7 @@ class DetailEventPresenter(val view: EventDetailView, private val gson: Gson, pr
             val awayData = gson.fromJson(ApiRepository().doRequestAsync(SportDBAPI.getTeamDetail(awayId.toString())).await(), TeamResponse::class.java)
 
             view.let {
-                it.showTeam(homeData.team, awayData.team)
+                it.showTeam(homeData.teams, awayData.teams)
             }
         }
     }

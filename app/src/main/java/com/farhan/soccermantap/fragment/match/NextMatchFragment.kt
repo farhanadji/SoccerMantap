@@ -14,7 +14,6 @@ import com.farhan.soccermantap.R
 import com.farhan.soccermantap.activity.DetailEvent
 import com.farhan.soccermantap.adapter.EventAdapter
 import com.farhan.soccermantap.model.Event
-import com.farhan.soccermantap.network.sportDB
 import com.farhan.soccermantap.presenter.EventPresenter
 import com.farhan.soccermantap.view.EventView
 import com.google.gson.Gson

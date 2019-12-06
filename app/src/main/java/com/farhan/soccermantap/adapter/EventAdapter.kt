@@ -33,8 +33,8 @@ class EventAdapter(private val context: Context, private val leagues: List<Event
         fun bindItem(items: Event, listener: (Event) -> Unit) {
             eventName.text = items.eventName
             eventDate.text = items.eventDate
-            homeScore.text = items.homeScore.toString()
-            awayScore.text = items.awayScore.toString()
+            homeScore.text = items.homeScore
+            awayScore.text = items.awayScore
 
             itemView.setOnClickListener {
                 listener(items)

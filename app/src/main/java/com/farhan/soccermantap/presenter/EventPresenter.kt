@@ -17,7 +17,7 @@ open class EventPresenter (private var view: EventView, private val gson: Gson, 
         GlobalScope.launch(context.main) {
             val prevMatch = gson.fromJson(ApiRepository().doRequestAsync(SportDBAPI.getPrevMatch(id)).await(), EventResponse::class.java)
             view.let {
-                it.showEventData(prevMatch.event)
+                it.showEventData(prevMatch.events)
             }
         }
     }
@@ -27,7 +27,7 @@ open class EventPresenter (private var view: EventView, private val gson: Gson, 
             val nextMatch = gson.fromJson(ApiRepository().doRequestAsync(SportDBAPI.getNextMatch(id)).await(), EventResponse::class.java)
 
             view.let {
-                it.showEventData(nextMatch.event)
+                it.showEventData(nextMatch.events)
             }
         }
     }

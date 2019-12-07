@@ -62,6 +62,7 @@ class DetailEvent : AppCompatActivity(), EventDetailView {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.detail_event,menu)
         menuItem = menu
+        setFavorite()
         return true
     }
 

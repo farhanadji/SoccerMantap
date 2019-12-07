@@ -47,10 +47,9 @@ class LeagueFragment : Fragment() {
         val leagueId = resources.getStringArray(R.array.league_id)
         val leagueTitle = resources.getStringArray(R.array.league_name)
         val leagueBadge = resources.obtainTypedArray(R.array.league_badge)
-        val leagueDescription = resources.getStringArray(R.array.league_description)
         item.clear()
         for(i in leagueTitle.indices){
-            item.add(LeagueHome(leagueId[i], leagueTitle[i],leagueBadge.getResourceId(i,0),leagueDescription[i]))
+            item.add(LeagueHome(leagueId[i], leagueTitle[i],leagueBadge.getResourceId(i,0)," "))
         }
         leagueBadge.recycle()
     }

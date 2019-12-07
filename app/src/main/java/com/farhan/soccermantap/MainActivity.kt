@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.farhan.soccermantap.fragment.EventFragment
+import com.farhan.soccermantap.fragment.FavoriteFragment
 import com.farhan.soccermantap.fragment.LeagueFragment
 import com.farhan.soccermantap.fragment.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,6 +37,11 @@ class MainActivity : AppCompatActivity() {
                    openFragment(eventFragment)
                    return@setOnNavigationItemSelectedListener true
                }
+                R.id.nav_favorite -> {
+                    val favoriteFragment = FavoriteFragment()
+                    openFragment(favoriteFragment)
+                    return@setOnNavigationItemSelectedListener  true
+                }
                else -> false
             }
         }

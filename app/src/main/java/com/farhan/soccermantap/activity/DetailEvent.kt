@@ -102,7 +102,8 @@ class DetailEvent : AppCompatActivity(), EventDetailView {
                     Favorite.AWAY_TEAM_DEFENSE to event.awayDefense,
                     Favorite.AWAY_TEAM_MIDFIELD to event.awayMidfield,
                     Favorite.AWAY_TEAM_FORWARD to event.awayForward,
-                    Favorite.AWAY_TEAM_SUBSTITUTES to event.awaySubstitutes
+                    Favorite.AWAY_TEAM_SUBSTITUTES to event.awaySubstitutes,
+                    Favorite.SPORT_TYPE to event.sportType
                 )
             }
 

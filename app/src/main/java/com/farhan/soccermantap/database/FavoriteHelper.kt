@@ -41,7 +41,8 @@ class FavoriteHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.
             Favorite.AWAY_TEAM_DEFENSE to TEXT,
             Favorite.AWAY_TEAM_MIDFIELD to TEXT,
             Favorite.AWAY_TEAM_FORWARD to TEXT,
-            Favorite.AWAY_TEAM_SUBSTITUTES to TEXT
+            Favorite.AWAY_TEAM_SUBSTITUTES to TEXT,
+            Favorite.SPORT_TYPE to TEXT
         )
     }
 

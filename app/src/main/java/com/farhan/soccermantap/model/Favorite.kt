@@ -26,6 +26,6 @@ class Favorite{
         const val AWAY_TEAM_MIDFIELD = "AWAY_TEAM_MIDFIELD"
         const val AWAY_TEAM_FORWARD = "AWAY_TEAM_FORWARD"
         const val AWAY_TEAM_SUBSTITUTES = "AWAY_TEAM_SUBTITUTES"
-
+        const val SPORT_TYPE = "SPORT_TYPE"
     }
 }

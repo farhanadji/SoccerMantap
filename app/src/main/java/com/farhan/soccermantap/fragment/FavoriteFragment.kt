@@ -14,7 +14,6 @@ import com.farhan.soccermantap.activity.DetailEvent
 import com.farhan.soccermantap.adapter.EventAdapter
 import com.farhan.soccermantap.database.database
 import com.farhan.soccermantap.model.Event
-import com.farhan.soccermantap.model.EventDetail
 import com.farhan.soccermantap.model.Favorite
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select

@@ -17,7 +17,7 @@ class SearchPresenter(private val view: SearchView, private val gson: Gson, priv
             val searchData = gson.fromJson(ApiRepository().doRequestAsync(SportDBAPI.getSearchQuery(param)).await(), SearchResponse::class.java)
             if(searchData.event != null){
                 view.let {
-                    it.showSearchResult(searchData.event) //event.filter { it.sportType.equals("Soccer") }
+                    it.showSearchResult(searchData.event.filter { it.sportType.equals("Soccer") })
                 }
             }else{
                 view.let {

@@ -67,7 +67,10 @@ data class Event (
     val awayForward: String? = null,
 
     @SerializedName("strAwayLineupSubstitutes")
-    val awaySubstitutes: String? = null
+    val awaySubstitutes: String? = null,
+
+    @SerializedName("strSport")
+    val sportType: String? = null
 ) : Parcelable {
     override fun toString(): String {
         return "Event(eventId=$eventId, eventName=$eventName, eventDate=$eventDate, homeId=$homeId, homeTeam=$homeTeam, homeScore=$homeScore, homeGoal=$homeGoal, homeGoalKeeper=$homeGoalkeeper, homeDefense=$homeDefense, homeMidfield=$homeMidfield, homeForward=$homeForward, homeSubstitutes=$homeSubstitutes, awayId=$awayId, awayTeam=$awayTeam, awayScore=$awayScore, awayGoal=$awayGoal, awayGoalkeeper=$awayGoalkeeper, awayDefense=$awayDefense, awayMidfield=$awayMidfield, awayForward=$awayForward, awaySubstitutes=$awaySubstitutes"

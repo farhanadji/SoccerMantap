@@ -9,7 +9,8 @@
     <SearchView
         android:id="@+id/searchMatch"
         android:layout_width="match_parent"
-        android:queryHint="Search.."
+        android:queryHint="@string/searching"
+        android:contentDescription="@string/search"
         android:focusableInTouchMode="false"
         android:touchscreenBlocksFocus="false"
         android:focusable="false"

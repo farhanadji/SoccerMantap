@@ -2,6 +2,7 @@ package com.farhan.soccermantap.presenter
 
 import com.farhan.soccermantap.activity.DetailLeague
 import com.farhan.soccermantap.model.LeaguesResponse
+import com.farhan.soccermantap.model.StandingResponse
 import com.farhan.soccermantap.model.TeamResponse
 import com.farhan.soccermantap.network.ApiRepository
 import com.farhan.soccermantap.network.SportDBAPI

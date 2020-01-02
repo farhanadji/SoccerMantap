@@ -22,4 +22,8 @@ object SportDBAPI {
     fun getSearchQuery(param: String): String {
         return BuildConfig.BASE_URL + "searchevents.php?e=$param"
     }
+
+    fun getStanding(id: String): String {
+        return BuildConfig.BASE_URL + "lookuptable.php?l=$id"
+    }
 }

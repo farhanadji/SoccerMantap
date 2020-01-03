@@ -12,23 +12,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.farhan.soccermantap.R
-import com.farhan.soccermantap.adapter.EventAdapter
 import com.farhan.soccermantap.adapter.StandingAdapter
-import com.farhan.soccermantap.fragment.match.PreviousMatchFragment
 import com.farhan.soccermantap.model.Standing
-import com.farhan.soccermantap.presenter.EventPresenter
-import com.farhan.soccermantap.presenter.MoreLeaguePresenter
-import com.farhan.soccermantap.view.MoreLeagueView
+import com.farhan.soccermantap.presenter.StandingPresenter
+import com.farhan.soccermantap.view.StandingView
 import com.google.gson.Gson
 
 /**
  * A simple [Fragment] subclass.
  */
-class StandingFragment : Fragment(), MoreLeagueView {
+class StandingFragment : Fragment(), StandingView {
 
     private var standingData : MutableList<Standing> = mutableListOf()
     protected lateinit var adapter: StandingAdapter
-    private lateinit var presenter: MoreLeaguePresenter
+    private lateinit var presenter: StandingPresenter
     private lateinit var rv: RecyclerView
     private var leagueId = ""
     companion object {
@@ -46,7 +43,7 @@ class StandingFragment : Fragment(), MoreLeagueView {
             leagueId = it.getString("key", "4328")
         }
         val gson = Gson()
-        presenter = MoreLeaguePresenter(this,gson)
+        presenter = StandingPresenter(this,gson)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

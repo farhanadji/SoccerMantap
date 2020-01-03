@@ -26,4 +26,12 @@ object SportDBAPI {
     fun getStanding(id: String): String {
         return BuildConfig.BASE_URL + "lookuptable.php?l=$id"
     }
+
+    fun getTeamList(id: String) : String {
+        return BuildConfig.BASE_URL + "lookup_all_teams.php?id=$id"
+    }
+
+    fun getSearchTeam(param: String): String {
+        return BuildConfig.BASE_URL + "searchteams.php?t=$param"
+    }
 }

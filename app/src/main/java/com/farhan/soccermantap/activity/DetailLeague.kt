@@ -56,7 +56,7 @@ class DetailLeague : AppCompatActivity(), DetailLeagueView {
                         StandingFragment.newInstance(bundle)
                     }
                     else -> {
-                        TeamFragment()
+                        TeamFragment.newInstance(bundle)
                     }
                 }
             }

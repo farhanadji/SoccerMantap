@@ -4,26 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragment.SearchFragment">
+    tools:context=".fragment.search.SearchFragment">
 
-    <SearchView
-        android:id="@+id/searchMatch"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabsSearch"
         android:layout_width="match_parent"
-        android:queryHint="@string/searching"
-        android:contentDescription="@string/search"
-        android:focusableInTouchMode="false"
-        android:touchscreenBlocksFocus="false"
-        android:focusable="false"
-        app:showAsAction="always"
-        app:iconifiedByDefault="true"
-        android:iconifiedByDefault="false"
-        android:layout_height="50dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="60dp"
-        android:padding="8dp"
-        android:id="@+id/searchRV"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpagerSearch"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        tools:layout_editor_absoluteX="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 
 </FrameLayout>

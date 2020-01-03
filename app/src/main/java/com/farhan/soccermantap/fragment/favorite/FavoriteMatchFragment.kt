@@ -1,4 +1,4 @@
-package com.farhan.soccermantap.fragment
+package com.farhan.soccermantap.fragment.favorite
 
 
 import android.os.Bundle
@@ -22,7 +22,7 @@ import org.jetbrains.anko.support.v4.startActivity
 /**
  * A simple [Fragment] subclass.
  */
-class FavoriteFragment : Fragment() {
+class FavoriteMatchFragment : Fragment() {
     private var favEvents : MutableList<Event> = mutableListOf()
     private lateinit var adapter: EventAdapter
     private lateinit var rv: RecyclerView
@@ -32,13 +32,14 @@ class FavoriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View =  inflater.inflate(R.layout.fragment_favorite, container, false)
-        rv = view.findViewById(R.id.favoriteRV)
+        var view: View =  inflater.inflate(R.layout.fragment_favorite_match, container, false)
+        rv = view.findViewById(R.id.favoriteMatchRV)
         context?.let {
             adapter = EventAdapter(it,favEvents){
                 startActivity<DetailEvent>("match" to it)
             }
         }
+
         return view
     }
 
@@ -63,5 +64,4 @@ class FavoriteFragment : Fragment() {
         super.onResume()
         showFavorite()
     }
-
 }

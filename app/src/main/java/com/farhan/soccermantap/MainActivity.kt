@@ -2,15 +2,12 @@ package com.farhan.soccermantap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.farhan.soccermantap.fragment.EventFragment
-import com.farhan.soccermantap.fragment.FavoriteFragment
+import com.farhan.soccermantap.fragment.favorite.FavoriteFragment
 import com.farhan.soccermantap.fragment.LeagueFragment
-import com.farhan.soccermantap.fragment.SearchFragment
+import com.farhan.soccermantap.fragment.search.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.leagues_list_item.*
 
 class MainActivity : AppCompatActivity() {
     private var savedInstanceState: Bundle? = null
@@ -28,7 +25,8 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                R.id.nav_search -> {
-                   val searchFragment = SearchFragment()
+                   val searchFragment =
+                       SearchFragment()
                    openFragment(searchFragment)
                    return@setOnNavigationItemSelectedListener true
                }
@@ -38,7 +36,8 @@ class MainActivity : AppCompatActivity() {
                    return@setOnNavigationItemSelectedListener true
                }
                 R.id.nav_favorite -> {
-                    val favoriteFragment = FavoriteFragment()
+                    val favoriteFragment =
+                        FavoriteFragment()
                     openFragment(favoriteFragment)
                     return@setOnNavigationItemSelectedListener  true
                 }

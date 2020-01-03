@@ -3,15 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FavoriteFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.favorite.FavoriteFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/favoriteRV"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="60dp"
-        android:padding="8dp"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabsFavorite"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="0dp" />
 
-
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpagerFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        tools:layout_editor_absoluteX="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 </FrameLayout>
